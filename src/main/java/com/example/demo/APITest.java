@@ -46,6 +46,6 @@ public class APITest {
     public ResponseEntity deleteUser(@PathVariable String id) {
         User user = repository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
         repository.delete(user);
-        return ResponseEntity.status(200).body(String.format("remove user with %s success",id));
+        return ResponseEntity.status(200).body(String.format("remove user with id %s success",id));
     }
 }
