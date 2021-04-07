@@ -14,11 +14,11 @@ import java.util.List;
 public class AgencyEntity extends BaseEntity {
     private String name;
     private int status;
-    private int agency_level;
+    private int agencyLevel;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "group",
-            joinColumns = @JoinColumn(name = "agency_id_1"),
-            inverseJoinColumns = @JoinColumn(name = "agency_id_2"))
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinTable(name = "agency_manage",
+            joinColumns = @JoinColumn(name = "agency_id1",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "agency_id2",referencedColumnName = "id"))
     List<AgencyEntity> agencyList;
 }

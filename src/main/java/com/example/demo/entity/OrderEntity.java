@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class OrderEntity extends BaseEntity {
     private int orderType;
     private double totalPrice;
@@ -20,7 +20,7 @@ public class OrderEntity extends BaseEntity {
     private int status;
     private String reason;
 
-    @OneToMany
+    @OneToMany(mappedBy = "order")
     List<OrderDetailEntity> orderDetailList;
 
 }
